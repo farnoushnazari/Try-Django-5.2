@@ -5,8 +5,10 @@ from django.template.loader import render_to_string
 
 def home_view(request):
 
-    object = Article.objectects.get(id=1)
+    object = Article.objects.get(id=1)
+    article_qs = Article.objects.all()
     context = {
+        'my_list': article_qs,
         'id': object.id,
         'title': object.title,
         'content': object.content
